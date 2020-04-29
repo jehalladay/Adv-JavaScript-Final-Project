@@ -4,7 +4,7 @@
   "description": "A planner that motivates the user by giving them points and a history of actions completed",
   "main": "app.js",
   "scripts": {
-    "start": "node server.js",
+    "start": "node app.js",
     "dev": "nodemon app.js"
   },
   "author": "James E. Halladay & Sandip Neupane",
