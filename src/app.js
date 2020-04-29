@@ -72,8 +72,8 @@ function serverController(hostname) {
     const server = http.createServer(app);
     
     //mongodb connection
-    mongoose.connect(db,{useNewUrlParser: true })
-        .then(()=>console.log('mongodb conected'));
+    mongoose.connect(db,{useUnifiedTopology : true, useNewUrlParser: true })
+        .then(()=>console.log('mongodb connected'));
 
     server.listen(port, hostname, () => {
         console.log(`Server running at ${hostname}:${port}\n`);
