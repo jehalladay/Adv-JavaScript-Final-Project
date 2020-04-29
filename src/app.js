@@ -72,7 +72,7 @@ function serverController(hostname) {
     const server = http.createServer(app);
     
     //mongodb connection
-    mongoose.connect(db,{useUnifiedTopology : true, useNewUrlParser: true })
+    mongoose.connect(db, {useUnifiedTopology : true, useNewUrlParser: true })
         .then(()=>console.log('mongodb connected'));
 
     server.listen(port, hostname, () => {

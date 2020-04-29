@@ -1,0 +1,194 @@
+body{
+    margin:0;
+    background-color: lightblue;
+    font-family: Cambria, Cochin, Georgia, Times, 'Times New Roman', serif;
+    background-image: url("img.png");
+}
+
+
+.container{
+    max-width:700px;
+    min-height:600px ;
+    background-color:white;
+    margin:35px auto;
+    border-radius:10px;
+    padding:30px;
+}
+
+.question-number h3{
+    color:royalblue;
+    border-bottom: 1px solid #ccc;
+    margin:0;
+    padding-bottom: 10px;
+}
+.question{
+    font-size:30px;
+    color:000000;
+    padding:15px 0;
+    margin-bottom: 30px;
+    font-weight: bold;
+}
+.options div{
+    background-color:lightcoral;
+    font-size:30px;
+    margin-bottom: 15px;
+    border-radius: 5px;
+    padding:15px;
+    position: relative;
+    overflow: hidden;
+    cursor: pointer;
+}
+.options div.disabled{
+    pointer-events: none;
+}
+.options div.correct{
+    z-index:1;
+    
+}
+.options div.correct::before{
+    content:'';
+    position: absolute;
+    left:0;
+    top:0;
+    width: 100%;
+    height: 100%;
+    background-color: seagreen;
+    z-index: -1;
+    animation:animateBackground 1s ease;
+    animation-fill-mode:forwards ;
+}
+/*slide the red and green color for wrong and right answer*/
+@keyframes animateBackground{
+    0%{
+        transform:translateX(-100%);
+    }
+    100%{
+        transform: translateX(0%);
+    }
+}
+.options div.wrong{
+    z-index:1;
+    
+}
+.options div.wrong::before{
+    content:'';
+    position: absolute;
+    left:0;
+    top:0;
+    width: 100%;
+    height: 100%;
+    background-color: red;
+    z-index: -1;
+    animation:animateBackground 1s ease;
+    animation-fill-mode:forwards ;
+}
+
+.button .btn{
+    background-color: sienna;
+    font-size: 20px;
+    color:goldenrod;
+    border:none;
+    display:inline-block;
+    margin:35px 0;
+    height: 50px;
+    width: 150px;
+    position: relative;
+    float: right;
+    cursor: pointer;
+    
+}
+.ans-tracker{
+    border-top:1px solid red;
+    padding-top: 15px;
+    margin-top: 35px;
+    margin-bottom: 15px;
+}
+.ans-tracker div{
+    background-color: white;
+    height: 40px;
+    width: 40px;
+    display: inline-block;
+    border-radius: 50%;
+}
+.ans-tracker div.correct{
+    background-color: green;
+    
+
+}
+.ans-tracker div.wrong{
+    background-color:red;
+}
+.quiz-over{
+    position: fixed;
+    left: 0;
+    top: 0;
+    width: 100%;
+    height: 100%;
+    background-color: azure;
+    z-index: 10;
+    display: none;
+    align-items: center;
+    justify-content: center;
+}
+.quiz-over.show{
+    display: flex;
+}
+.quiz-over .box{
+    background-color: brown;
+    padding:30px;
+    border-radius: 10px;
+    text-align: center;
+    flex-basis: 700px;
+    max-width: 700px;
+    
+}
+.quiz-over .box h1{
+    font-size: 40px;
+    margin:0 0 20px;
+}
+.quiz-over  .box button{
+    padding:20px 60px;
+    background-color: green;
+    border-radius: 15px;
+    font-size: 20px;
+    margin:15px 0 20px;
+    color:red;
+    cursor: pointer;
+}
+.submit-quiz{
+    position: fixed;
+    left: 0;
+    top: 0;
+    width: 100%;
+    height: 100%;
+    background-color: azure;
+    z-index: 10;
+    display: none;
+    align-items: center;
+    justify-content: center;
+}
+.submit-quiz.show{
+    display: flex;
+}
+.submit-quiz .boxx{
+    background-color: brown;
+    padding:30px;
+    border-radius: 10px;
+    text-align: center;
+    flex-basis: 700px;
+    max-width: 700px;
+    
+}
+.submit-quiz .boxx h1{
+    font-size: 40px;
+    margin:0 0 20px;
+}
+.submit-quiz .boxx button{
+    padding:20px 60px;
+    background-color: green;
+    border-radius: 15px;
+    font-size: 20px;
+    margin:15px 0 20px;
+    color:red;
+    cursor: pointer;
+}
