@@ -1,0 +1,97 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    
+    <meta charset="utf-8" author="James E. Halladay">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.16.0/umd/popper.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.4.1/js/bootstrap.min.js"></script>
+    <script src="./javascript/scoreboard.js" type="module"> </script>
+    <script src="./javascript/templates.js" type="module"> </script>
+    <script src="./javascript/mvc.js" type="module"> </script>
+    <link rel="stylesheet" href="./css/main.css" />
+    <link href= "/public/assets/main.css" rel="stylesheet" type="text/css">
+    <script type="text/javascript">
+            
+    </script>
+</head>
+    
+
+
+<body action='/user/planner' method='POST'>
+    <header>
+        <nav class="navIn">
+                <p>To-Do Planner</p>
+        </nav>
+        <p></p>
+    </header>
+        
+    <div id="background">
+        <main>
+            <div class="container-fluid">
+                <div class="row">
+                
+                    <div class="col-sm-4">
+                        <div id="control">
+                            <p id="control-title">Subject Control Panel</p>
+                            <p id="create-subject-label">Add New Subject</p>
+                            <div id="create-subject">
+                                <input type="text" name="subject" placeholder="new subject..." id="createSubject"/> 
+                                <button id="create-subject-button">submit</button>
+                            </div>
+                            <div id="subject-subcategories">
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="col-sm-4" id="que-list">
+
+                    </div>
+
+
+                    <div class="col-sm-4" id="score">
+                        
+                    </div>
+                </div>
+
+                <div class="row">
+                    <div class="col-sm-4">
+                        <div id="">
+
+                        </div>
+                    </div>
+                    <div class="col-sm-4">
+                        <div id="subject-add">
+
+                        </div>
+                    </div>
+                    <div class="col-sm-4">
+                        <div id="history-graph">
+
+                        </div>
+                    </div>
+
+                </div>
+
+
+
+            </div>
+        </main>
+    </div>
+        
+    <footer>
+        <p></p>
+        <div class="navIn">
+            <aside>
+                Copyright &copy; 2020, James Halladay
+            </aside>    
+        </div>
+    </footer>
+    <script>
+            // launch();
+    </script>
+</body>
+</html>

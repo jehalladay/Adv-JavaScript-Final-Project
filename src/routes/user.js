@@ -39,7 +39,7 @@ router.get('/register',(req,res,next)=>res.render('register',{title:"Sign up"}))
 //handling rgister :- idea and code snippet taken from class or jupyter_Notebook
 router.post('/register',
 [
-    check("name", "name must not be empty.")
+    check("name", "Name field must not be empty.")
         .isLength({ min: 4 })
         .trim(),
     // email must be valid
@@ -48,12 +48,12 @@ router.post('/register',
         .trim(),
     //requirements for password
     check('password')
-        .isLength({ min: 8 }).withMessage('should be atleast 8 character')
-        .matches('[a-z]').withMessage('shuld have atleast one lowercase')
-        .matches('[0-9]').withMessage('should conatain digit')
-        .matches('[A-Z]').withMessage('should contain atleast one uppercase')
+        .isLength({ min: 8 }).withMessage('Your password should be atleast 8 characters')
+        .matches('[a-z]').withMessage('Your password should have atleast one lowercase letter')
+        .matches('[0-9]').withMessage('Your password should contain atleast one digit')
+        .matches('[A-Z]').withMessage('Your password should contain atleast one uppercase letter')
         .trim(),
-    check("password2", "two passwords do not match")
+    check("password2", "Your passwords do not match")
         .exists()
         .custom((value, { req }) => value === req.body.password),
     ],
@@ -62,6 +62,7 @@ router.post('/register',
     const errors = validationResult(req)
     // check if there are errors
     if (!errors.isEmpty()) {
+        console.log(req)
         
         let context = {
             title: "Sign up",
