@@ -1,0 +1,21 @@
+{
+  "name": "planner",
+  "version": "1.0.0",
+  "description": "A planner that motivates the user by giving them points and a history of actions completed",
+  "main": "server.js",
+  "scripts": {
+    "start": "node server.js"
+  },
+  "author": "James E. Halladay",
+  "license": "MIT",
+  "devDependencies": {
+    "jest": "^25.4.0"
+  },
+  "dependencies": {
+    "debug": "^4.1.1",
+    "express": "^4.17.1",
+    "mongodb": "^3.5.6",
+    "mongoose": "^5.9.10",
+    "morgan": "^1.10.0"
+  }
+}

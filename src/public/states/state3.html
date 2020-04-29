@@ -1,0 +1,337 @@
+<!DOCTYPE html>
+<html>
+    <head>
+    <meta charset="utf-8" author="James E. Halladay">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.16.0/umd/popper.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.4.1/js/bootstrap.min.js"></script>
+    <script src="./javascript/scoreboard.js" type="module"> </script>
+    <script src="./javascript/templates.js" type="module"> </script>
+    <script src="./javascript/mvc.js" type="module"> </script>
+    <link rel="stylesheet" href="./css/main.css">
+    
+    <script type="text/javascript">
+            
+    </script>
+</head>
+    
+
+
+<body>
+    <header>
+        <nav class="navIn">
+                <p>To-Do Planner</p>
+        </nav>
+        <p></p>
+    </header>
+        
+    <div id="background">
+        <main>
+            <div class="container-fluid">
+                <div class="row">
+                
+                    <div class="col-sm-4">
+                        <div id="control">
+                            <p id="control-title">Subject Control Panel</p>
+                            <p id="create-subject-label">Add New Subject</p>
+                            <div id="create-subject">
+                                <input type="text" name="subject" placeholder="new subject..." id="createSubject"> 
+                                <button id="create-subject-button">submit</button>
+                            </div>
+                            <div id="subject-subcategories">
+                            <label for="subjects" id="subject-list-label">Subject: </label><select name="subjects" id="subject-list"><option value="asdf" class="asdf">asdf</option></select><div class="subcategories" id="addToDo">
+        <section>
+            <label for="category" id="category-list-label">
+                Category: 
+            </label>
+            <select name="category" id="category-list">
+                <option value="Homework">Homework</option>
+                <option value="Projects">Projects</option>
+                <option value="Reading">Reading</option>
+                <option value="Tests">Tests</option>
+                <option value="Videos">Videos</option>
+            </select>
+        </section>
+        <section>
+            <label for="category-input" id="category-input-label">
+                To-Do:
+            </label>
+            <input type="text" id="category-input" name="category-input" placeholder="Add item to ToDo list">
+        </section>
+        <section>
+            <label for="category-details" id="details-label">
+                Details:
+            </label>
+            <input type="text" id="category-details" name="category-details" placeholder="details...">
+        </section>
+        <section>
+            <label for="category-due" id="due-label">
+                Due Date:
+            </label>
+            <input type="date" id="category-due" name="category-due">
+        </section>
+        <section>
+            <label for="points" id="points-label">
+                Points:
+            </label>
+
+            <select name="points" id="points-dropdown">
+                <option value="1">1</option>
+                <option value="2">2</option>
+                <option value="3">3</option>
+                <option value="4">4</option>
+                <option value="5">5</option>
+                <option value="6">6</option>
+                <option value="7">7</option>
+                <option value="8">8</option>
+                <option value="9">9</option>
+                <option value="10">10</option>
+            </select>
+        </section></div><button id="add-items">Submit</button></div>
+                        </div>
+                    </div>
+
+                    <div class="col-sm-4" id="que-list">
+
+                    <div id="que">
+    <div class="que-category" id="homework-que">
+        <section class="que-head">
+            <div class="que-line que-category-head">Homework</div>
+            <div class="que-line que-due">Due Date:  4/30</div>
+        </section>
+        <div class="que-bar">
+
+            <section class="que-title">
+                <div class="que-line que-todo-title">To-Do:</div>
+                <div class="que-line que-subject-title">Subject:</div>
+                <button class="que-line que-button-right complete">Complete</button>
+            </section>
+            <section class="que-area .que-contents">
+                <div class="que-line que-todo .que-contents">asdf</div>
+                <div class="que-line que-subject .que-contents">asdf</div>
+                <button class="que-line que-button-right delete">Delete</button>
+            </section>
+        </div>
+        <section class="que-bar .que-contents">
+            <div class="que-line que-details .que-contents"></div>
+            <div class="que-line que-points que-multiplier .que-contents">x1</div>
+            <div class="que-line que-points points .que-contents">1</div>
+        </section>
+    </div></div><div id="que">
+    <div class="que-category" id="project-que">
+        <section class="que-head">
+            <div class="que-line que-category-head">Projects</div>
+            <div class="que-line que-due">Due Date:</div>
+        </section>
+        <div class="que-bar">
+
+            <section class="que-title">
+                <div class="que-line que-todo-title">To-Do:</div>
+                <div class="que-line que-subject-title">Subject:</div>
+                <button class="que-line que-button-right complete">Complete</button>
+            </section>
+            <section class="que-area .que-contents">
+                <div class="que-line que-todo .que-contents">todo</div>
+                <div class="que-line que-subject .que-contents">subject</div>
+                <button class="que-line que-button-right delete">Delete</button>
+            </section>
+        </div>
+        <section class="que-bar .que-contents">
+            <div class="que-line que-details .que-contents">details</div>
+            <div class="que-line que-points que-multiplier .que-contents">x1</div>
+            <div class="que-line que-points points .que-contents">pts</div>
+        </section>
+    </div></div><div id="que">
+    <div class="que-category" id="reading-que">
+        <section class="que-head">
+            <div class="que-line que-category-head">Reading</div>
+            <div class="que-line que-due">Due Date:</div>
+        </section>
+        <div class="que-bar">
+
+            <section class="que-title">
+                <div class="que-line que-todo-title">To-Do:</div>
+                <div class="que-line que-subject-title">Subject:</div>
+                <button class="que-line que-button-right complete">Complete</button>
+            </section>
+            <section class="que-area .que-contents">
+                <div class="que-line que-todo .que-contents">todo</div>
+                <div class="que-line que-subject .que-contents">subject</div>
+                <button class="que-line que-button-right delete">Delete</button>
+            </section>
+        </div>
+        <section class="que-bar .que-contents">
+            <div class="que-line que-details .que-contents">details</div>
+            <div class="que-line que-points que-multiplier .que-contents">x1</div>
+            <div class="que-line que-points points .que-contents">pts</div>
+        </section>
+    </div></div><div id="que">
+    <div class="que-category" id="test-que">
+        <section class="que-head">
+            <div class="que-line que-category-head">Tests</div>
+            <div class="que-line que-due">Due Date:</div>
+        </section>
+        <div class="que-bar">
+
+            <section class="que-title">
+                <div class="que-line que-todo-title">To-Do:</div>
+                <div class="que-line que-subject-title">Subject:</div>
+                <button class="que-line que-button-right complete">Complete</button>
+            </section>
+            <section class="que-area .que-contents">
+                <div class="que-line que-todo .que-contents">todo</div>
+                <div class="que-line que-subject .que-contents">subject</div>
+                <button class="que-line que-button-right delete">Delete</button>
+            </section>
+        </div>
+        <section class="que-bar .que-contents">
+            <div class="que-line que-details .que-contents">details</div>
+            <div class="que-line que-points que-multiplier .que-contents">x1</div>
+            <div class="que-line que-points points .que-contents">pts</div>
+        </section>
+    </div></div><div id="que">
+    <div class="que-category" id="video-que">
+        <section class="que-head">
+            <div class="que-line que-category-head">Videos</div>
+            <div class="que-line que-due">Due Date:</div>
+        </section>
+        <div class="que-bar">
+
+            <section class="que-title">
+                <div class="que-line que-todo-title">To-Do:</div>
+                <div class="que-line que-subject-title">Subject:</div>
+                <button class="que-line que-button-right complete">Complete</button>
+            </section>
+            <section class="que-area .que-contents">
+                <div class="que-line que-todo .que-contents">todo</div>
+                <div class="que-line que-subject .que-contents">subject</div>
+                <button class="que-line que-button-right delete">Delete</button>
+            </section>
+        </div>
+        <section class="que-bar .que-contents">
+            <div class="que-line que-details .que-contents">details</div>
+            <div class="que-line que-points que-multiplier .que-contents">x1</div>
+            <div class="que-line que-points points .que-contents">pts</div>
+        </section>
+    </div></div></div>
+
+
+                    <div class="col-sm-4" id="score">
+                        
+                    <div id="scoreboard">
+                <table class="table table-dark table-hover">
+                    <tbody><tr>
+                        <th>Day</th>
+                        <th>Points</th>
+                        <th>Last Week</th>
+                        <th>Historic High</th>
+                    </tr>
+                    
+                    <tr id="monday">
+                        <th>Mon:</th>
+                        <td class="points">0</td>
+                        <td class="totals_prev">0</td>
+                        <td class="totals_historic_column">0</td>
+                        
+                    </tr>
+                    
+                    <tr id="tuesday">
+                        <th>Tues:</th>
+                        <td class="points">0</td>
+                        <td class="totals_prev">0</td>
+                        <td class="totals_historic_column">0</td>
+                        
+                    </tr>
+                    <tr id="wednesday">
+                        <th>Weds:</th>
+                        <td class="points">0</td>
+                        <td class="totals_prev">0</td>
+                        <td class="totals_historic_column">0</td>
+                        
+                    </tr>
+                    <tr id="thursday">
+                        <th>Thurs:</th>
+                        <td class="points">0</td>
+                        <td class="totals_prev">0</td>
+                        <td class="totals_historic_column">0</td>
+                        
+                    </tr>
+                    <tr id="friday">
+                        <th>Fri:</th>
+                        <td class="points">0</td>
+                        <td class="totals_prev">0</td>
+                        <td class="totals_historic_column">0</td>
+                        
+                    </tr>
+                    <tr id="saturday">
+                        <th>Sat:</th>
+                        <td class="points">0</td>
+                        <td class="totals_prev">0</td>
+                        <td class="totals_historic_column">0</td>
+                        
+                    </tr>
+                    <tr id="sunday">
+                        <th>Sun:</th>
+                        <td class="points">0</td>
+                        <td class="totals_prev">0</td>
+                        <td class="totals_historic_column">0</td>
+                        
+                    </tr>
+                    <tr id="totals_row">
+                        <th>Total:</th>
+                        <td class="points">0</td>
+                        <td class="totals_prev">0</td>
+                        <td class="totals_historic_column">0</td>
+                        
+                    </tr>
+                    <tr id="totals_historic_row">
+                        <th>Historic:</th>
+                        <td class="points">0</td>
+                        <td class="totals_prev">0</td>
+                        <td class="totals_historic_column">0</td>
+                    
+                    </tr>
+                </tbody></table></div></div>
+                </div>
+
+                <div class="row">
+                    <div class="col-sm-4">
+                        <div id="">
+
+                        </div>
+                    </div>
+                    <div class="col-sm-4">
+                        <div id="subject-add">
+
+                        </div>
+                    </div>
+                    <div class="col-sm-4">
+                        <div id="history-graph">
+
+                        </div>
+                    </div>
+
+                </div>
+
+
+
+            </div>
+        </main>
+    </div>
+        
+    <footer>
+        <p></p>
+        <div class="navIn">
+            <aside>
+                Copyright © 2020, James Halladay
+            </aside>    
+        </div>
+    </footer>
+    <script>
+            // launch();
+    </script>
+
+
+</body></html>
