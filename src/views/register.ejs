@@ -1,0 +1,55 @@
+<style>
+    form{margin-top: 100px;
+            margin-right: 200px;
+            margin-left: 200px;}
+</style>
+ 
+<form action='/user/register' method='POST'>
+ 
+  <%- include('./partial/message') %>
+    <div class="form-row">
+      <div class="form-group col-md-6">
+        <label for="name">Name</label>
+        <input type="name" 
+                class="form-control" 
+                id="name" 
+                name="name"
+                value="<%= typeof name!='undefined'? name: '' %>"
+                placeholder="Enter a name"/>
+      </div>
+      <div class="form-group col-md-6">
+        <label for="email">Email</label>
+        <input type="email" 
+                class="form-control" 
+                id="email"
+                name="email"
+                placeholder="Enter email"
+                value="<%= typeof email!='undefined'? email: '' %>"
+                />
+      </div>
+    </div>
+    <div class="form-group">
+      <label for="password">Password</label>
+      <input type="password" 
+                class="form-control" 
+                id="inputAddress" 
+                placeholder="Creat a password"
+                name="password"
+                value="<%= typeof password!='undefined'? password: '' %>"
+                />
+    </div>
+    <div class="form-group">
+      <label for="password2">Confirm Password</label>
+      <input type="password" 
+                class="form-control" 
+                id="inputAddress2" 
+                name="password2"
+                placeholder="Confirm Password"
+                value="<%= typeof password2!='undefined'? password2: '' %>"
+                />
+      </div>
+   
+    <button type="submit" class="btn btn-success">Register</button>
+</form>
+    <p class="lead mt-4">have an account? <a href="/user/login">login</a></p>
+  

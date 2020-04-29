@@ -10,14 +10,6 @@ var score = {
     "Historic Total": {"Points": 0,   "Last Week": 0,   "Historic High": 0}
 };
 
-var categories = [
-    'Homework',
-    'Projects',
-    'Reading',
-    'Tests',
-    'Videos'
-];
-
 var queue = {
     Homework: [], 
     Projects: [], 
@@ -41,5 +33,3 @@ var deletedQueue = {
     Tests: [], 
     Videos: []
 };
-
-console.log(JSON.stringify(queue))

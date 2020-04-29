@@ -1,0 +1,30 @@
+<style>
+    form{margin-top: 100px;
+            margin-right: 300px;
+            margin-left: 300px;}
+</style>
+<form action="/user/login" method="POST">
+  <%- include('./partial/message') %>
+    <div class="form-group">
+      <label for="email">Email</label>
+      <input type="email" 
+              class="form-control" 
+              id="email" 
+              name="email"
+              placeholder="Enter email"
+              />
+     
+    </div>
+    <div class="form-group">
+      <label for="password">Password</label>
+      <input type="password" 
+              class="form-control" 
+              id="password"
+              name="password"
+              placeholder="password"
+              />
+    </div>
+    
+    <button type="submit" class="btn btn-primary">login</button><br>
+    <h4>Dont have an account? </h4><a href="/user/register">Register here</a>
+  </form>
