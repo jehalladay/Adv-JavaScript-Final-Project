@@ -20,7 +20,9 @@ rgb(156, 95, 61)    subdued orange
 
 .navIn {
     padding:.5rem;
-    background-color: #31465a;
+    /* background-color: #31465a; */
+    background-color: #323232;
+
 }
 
 .navIn p {
@@ -44,19 +46,35 @@ header {
 
 #background {
     padding-top: 1rem;
-    background-color: #360f0f;
+    /* background-color: #360f0f; */
+    /* background-color:lightseagreen; */
+    background-color: #31465a;
+
     color: #dddddd;
 }
 
 body {
-    background-color: #323232;
+    /* background-color: #323232; */
+    
+    background-color: #31465a;
+
 }
 
 button {
-    border: solid 1pt rgb(255, 130, 62);
-    background-color: rgb(255, 130, 62);
+    /* border: solid 1pt rgb(255, 130, 62); */
+    border: solid 1pt seagreen;
+    /* background-color: rgb(255, 130, 62); */
+    background-color:lightseagreen;
     color: #323232;
     border-radius: 8px;
+}
+
+button:hover {
+    border: solid 1pt green;
+    background-color:lightgreen;
+    color: #323232;
+    border-radius: 8px;
+
 }
 
 

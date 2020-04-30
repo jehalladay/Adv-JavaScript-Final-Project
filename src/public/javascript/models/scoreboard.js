@@ -8,6 +8,7 @@ Date: 3/30/2020
 */
 
 'use strict'
+
 export {Scoreboard}
 
 /**

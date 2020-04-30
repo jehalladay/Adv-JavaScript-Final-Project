@@ -4,6 +4,8 @@
             margin-left: 300px;}
 </style>
 <form action="/user/login" method="POST">
+  <div class="container">
+  </div>
   <%- include('./partial/message') %>
     <div class="form-group">
       <label for="email">Email</label>
@@ -27,4 +29,5 @@
     
     <button type="submit" class="btn btn-primary">login</button><br>
     <h4>Dont have an account? </h4><a href="/user/register">Register here</a>
-  </form>
+    
+</form>
