@@ -139,4 +139,35 @@ router.get('/logout',(req,res)=>{
     req.flash('success_msg','You are sucessufully logout');
     res.redirect('/user/login');
 })
+
+
+
+//handeling api
+//add,delete item
+const Task=require('../models/Task');
+//get all items from planner
+router.get('/planner',(res,req)=>{
+    Task.find()
+    .sort({dates:1})
+    .then(items=>res.json(tasks))
+});
+
+//add new item
+router.post('/planner',(res,req)=>{
+   const newTask=new Task({
+       name:req.body.name
+   })
+   newTask.save().then(item=>res.json(task))
+})
+
+//delete task based on id
+router.delete('/planner:id',(res,req)=>{
+    Task.findById(req.params.id)
+    .then(task=>task.remove().then(()=>res.json({success:true})))
+     //if there is no item
+    .catch(err=>res.status(400).json({success:false}));
+
+ })
+
+ 
 module.exports=router;
