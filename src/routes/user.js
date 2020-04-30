@@ -149,21 +149,22 @@ const Task=require('../models/Task');
 router.get('/planner',(res,req)=>{
     Task.find()
     .sort({dates:1})
-    .then(items=>res.json(tasks))
+    .then(items=>res.json(items))
 });
 
 //add new item
 router.post('/planner',(res,req)=>{
    const newTask=new Task({
        name:req.body.name
+       //you can add other fields
    })
-   newTask.save().then(item=>res.json(task))
+   newTask.save().then(item=>res.json(item))
 })
 
 //delete task based on id
 router.delete('/planner:id',(res,req)=>{
     Task.findById(req.params.id)
-    .then(task=>task.remove().then(()=>res.json({success:true})))
+    .then(item=>item.remove().then(()=>res.json({success:true})))
      //if there is no item
     .catch(err=>res.status(400).json({success:false}));
 
