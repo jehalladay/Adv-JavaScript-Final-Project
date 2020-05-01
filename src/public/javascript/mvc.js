@@ -61,6 +61,7 @@ I also need to create a set of methods for the Model Class to fetch old data fro
 
 import {Scoreboard} from "./scoreboard.js";
 import {template, queTemplate} from "./templates.js";
+import {Queue} from './queue.js';
 
 'use strict'
 

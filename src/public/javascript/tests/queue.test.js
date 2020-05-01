@@ -1,4 +1,4 @@
-import {Queue} from '../models/queue.js';
+import {Queue} from '../queue.js';
 
 
 describe('The Queue', () => {
