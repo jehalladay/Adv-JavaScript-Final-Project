@@ -5,11 +5,11 @@ const router=express.Router();
 const{ensureAuthenticated}=require('../config/authorize')
 
 //welcome page
-router.get('/',(req,res)=>res.render('welcome', {title: 'Planner'}));
+router.get('/',(req,res)=>res.render('welcome'));
 
 
 
 //quiz page
-router.get('/quiz',ensureAuthenticated,(req,res)=>res.render('quiz',{name:req.user.name, title: 'Planner'}));
+router.get('/planner',ensureAuthenticated,(req,res)=>res.render('planner'));
 
 module.exports=router;

@@ -127,7 +127,7 @@ router.post('/register',
 //handling login
 router.post('/login',(req,res,next)=>{
     passport.authenticate('local',{
-        successRedirect:'/quiz',
+        successRedirect:'/planner',
         failureRedirect:'/user/login',
         failureFlash:true
     })(req,res,next);
