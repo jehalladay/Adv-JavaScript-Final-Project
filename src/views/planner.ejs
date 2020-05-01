@@ -1,55 +1,19 @@
-<!-- <!DOCTYPE html>
-<html>
-     -->
 <body action='/user/planner' method='POST'>
-    <div>
-        <script src="public/javascript/models/scoreboard.js" type="module"> </script>
-        <script src="public/javascript/views/templates.js" type="module"> </script>
-        <script src="public/javascript/mvc.js" type="module"> </script>
-    </div>
     <div class="container-fluid">
         <div class="row">
-        
-            <div class="col-sm-4">
-                <div id="control">
-                    <!-- <p id="control-title">Subject Control Panel</p>
-                    <p id="create-subject-label">Add New Subject</p>
-                    <div id="create-subject">
-                        <input type="text" name="subject" placeholder="new subject..." id="createSubject"/> 
-                        <button id="create-subject-button" class='pButton'>submit</button>
-                    </div>
-                    <div id="subject-subcategories">
-                    </div> -->
-                </div>
-            </div>
-
-            <div class="col-sm-4" id="que-list">
-
-            </div>
-
-
-            <div class="col-sm-4" id="score">
-                
-            </div>
+            <div class="col-sm-4" id="Left_Panel"></div>
+            <div class="col-sm-4" id="Middle_Panel"></div>
+            <div class="col-sm-4" id="Right_Panel"></div>
         </div>
-
-        <!-- <div class="row">
-            <div class="col-sm-4">
-                <div id="">
-
-                </div>
-            </div>
-            <div class="col-sm-4">
-                <div id="subject-add">
-
-                </div>
-            </div>
-            <div class="col-sm-4">
-                <div id="history-graph">
-
-                </div>
-            </div> -->
-
-        </div>
+    </div>
+    <div class='invisible'>
+        <script src="https://unpkg.com/react@16/umd/react.development.js" crossorigin></script>  
+        <script src="https://unpkg.com/react-dom@16/umd/react-dom.development.js" crossorigin></script>
+        <script src="public/javascript/mvc/models/queue.js" type="module"> </script>
+        <script src="public/javascript/mvc/models/scoreboard.js" type="module"> </script>
+        <script src="public/javascript/mvc/models/model.js" type="module"> </script>
+        <script src="public/javascript/mvc/views/view.js" type="module"> </script>
+        <script src="public/javascript/mvc/controller/controller.js" type="module"> </script>
+        <script src="public/javascript/planner.js" type="module"> </script>
     </div>
 </body>

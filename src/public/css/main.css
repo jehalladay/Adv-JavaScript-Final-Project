@@ -61,17 +61,19 @@ body {
 }
 
 button {
-    /* border: solid 1pt rgb(255, 130, 62); */
-    border: solid 1pt seagreen;
-    /* background-color: rgb(255, 130, 62); */
-    background-color:lightseagreen;
+    border: solid 1pt rgb(255, 130, 62);
+    background-color: rgb(255, 130, 62);
     color: #323232;
     border-radius: 8px;
+    margin-left: .2rem;
+    margin-right: .2rem;
 }
 
 button:hover {
-    border: solid 1pt green;
-    background-color:lightgreen;
+    border: solid 1pt seagreen;
+    background-color:lightseagreen;
+    /* border: solid 1pt green;
+    background-color:lightgreen; */
     color: #323232;
     border-radius: 8px;
 
@@ -87,6 +89,12 @@ button:hover {
     font-size: 10pt;
     line-height: 12pt;
     padding-bottom: 2rem;
+    background-color: #360f0f;
+    
+    padding: .1rem;
+    border: 2.5pt solid black;
+    border-radius: 16px;
+
 }
 
 #control-title {
@@ -95,7 +103,15 @@ button:hover {
     background-color: #b94b4f ;
     border-radius: 4px;
     width: 40%;
+    margin-top: 1rem;
     margin-left: 30%;
+}
+
+#control-subject-label {
+    text-align: left;
+    margin-left: 10%;
+    margin-top: .2rem;
+    margin-bottom: .3rem;
 }
 
 #create-subject-label {
@@ -103,8 +119,15 @@ button:hover {
 }
 
 #create-subject {
-    float: right;
+    text-align: right;
+    margin-bottom: 1rem;
+    
+}
 
+#subject-submit {
+    margin-bottom: .5rem;
+    text-align: right;
+    
 }
 
 #subject-list-label {
@@ -129,20 +152,24 @@ button:hover {
 }
 
 #subject-subcategories {
-    padding-top: 3rem;
+    padding-top: 1rem;
+    margin-left: 1rem;
+    margin-right: 1rem;
 }
 
 #subject-subcategories button {
-    float: right;
+    text-align: right;
+
+    /* float: right; */
 }
 
 
 
 
 
-/* Que */
+/* Queue */
 
-.que-category {
+.queue-category {
     font-size: 8pt;
     margin: .2rem;
     padding: .1rem;
@@ -153,7 +180,7 @@ button:hover {
     line-height: 1;
 }
 
-.que-category-head {
+.queue-category-head {
     background-color: #b94b4f; 
     padding-left:  .5rem; 
     padding-bottom:  .6rem;
@@ -164,48 +191,48 @@ button:hover {
     width: 40%;
 }
 
-.que-head, .que-title {
+.queue-head, .que-title {
     font-size: 10pt;
 }
 
-.que-line {
+.queue-line {
     display: inline-block;
 }
 
-.que-todo , .que-todo-title {
+.queue-todo , .que-todo-title {
     width: 35%;
 }
 
-.que-subject, .que-subject-title {
+.queue-subject, .que-subject-title {
     width: 32%;
 }
 
-.que-contents {
+.queue-contents {
     font-weight: 300;
     line-height: .9;
     font-size: 8pt;
 }
 
-.que-button-right {
+.queue-button-right {
     /* float: right;
     margin-right: 5px; */
     font-size: 10pt;
     width: 30%;
 }
 
-.que-details {
+.queue-details {
     width: 77%;
 }
 
-.que-points {
+.queue-points {
     width: 10%
 }
 
-.que-multiplier {
+.queue-multiplier {
     width: 10%
 }
 
-.que-bar {
+.queue-bar {
     margin: .2rem;
     padding-bottom: 0.5rem;
     padding-left: .5rem;
@@ -215,12 +242,12 @@ button:hover {
     background-color: #31465a;
 }
 
-.que-title {
+.queue-title {
     border-radius: 4px;
     background-color: #31465a ;
 }
 
-.que-area {
+.queue-area {
     padding-top: 5px;
 }
 

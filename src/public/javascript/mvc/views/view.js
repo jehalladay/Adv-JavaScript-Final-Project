@@ -1,4 +1,146 @@
 
+const Comps = {
+    categories: ['Homework', 'Projects', 'Reading', 'Tests', 'Videos'],
+    queueIds: {'Homework': 'homework-queue', 'Projects': 'project-queue', 'Reading' : 'reading-queue', 'Tests'   : 'test-queue', 'Videos'  : 'video-queue'},
+    
+
+    Ctr: (...elements) => React.createElement(
+        'div', 
+        {'id': 'control', 'key': 'ctr'},
+        React.createElement('p', {'id': 'control-title','key': 'ControlTitle'}, "Control Panel"),
+        React.createElement('p', {'id': 'control-subject-label','key': 'NewSubjectLabel'}, "Add New Subject"),
+        Comps.CtrSubjectSubmit(),
+        ...elements,
+    ),
+            
+    CtrSubjectSubmit: () => React.createElement(
+        'div', 
+        {'id': 'create-subject','key': 'CreateSubject'},
+        React.createElement('input', {type: 'text', name: 'subject', placeholder: 'new subject...', id: 'createSubject', key: 'CreateSubjectField'}),
+        React.createElement('button', {id: 'create-subject-button', key: 'CreateSubjectButton'}, 'Submit')
+    ),
+
+    CtrFillSubject: (subjects) => React.createElement(
+        'div', 
+        {'id': 'subject-subcategories','key': 'SubjectSubcategories'}, 
+        React.createElement('label', {'htmlFor': 'subjects', id: 'subject-list-label', key: 'SubjectListLabel'}, 'Subject:'),
+        React.createElement(
+            'select', 
+            {name: 'subjects', id: 'subject-list', key: 'SubjectDropDown'},
+            subjects.map((x, i) => React.createElement('option', {value: x, className: x, key: 'SubjectOptions'+i}, x))
+        ),
+        Comps.CtrToDoFields(),
+        React.createElement(
+            'div',
+            {id: 'subject-submit', key: 'EnterToDo'},
+            React.createElement('button', {'id': 'add-items','key': 'CreateTodo'}, "Submit")
+        )
+    ),
+
+    CtrToDoFields: () => React.createElement(
+        'div',
+        {className: 'subcategories', id: 'addToDo', key: 'SubcategoriesArea'},
+        React.createElement(
+            'section', 
+            {key: 'Section1'},
+            React.createElement('label', {htmlFor: 'category', id: 'category-list-label', key: 'CategoryListLabel'}, "Category: "),
+            React.createElement(
+                'select',
+                {name: 'category', id: 'category-list', key: 'CategoryDropDown'},
+                Comps.categories.map((x, i) => React.createElement('option', {value: x, key: x + i}, x))
+            )
+        ),
+        React.createElement(
+            'section',
+            {key: 'Section2'},
+            React.createElement('label', {htmlFor: 'category-input', id: 'category-input-label', key: 'CategoryInputLabel'}, 'To-Do: '),
+            React.createElement('input', {type: 'text', id: 'category-input', name: 'category-input', placeholder: 'Add item to ToDo list', key: 'InputToDoField'})
+        ),
+        React.createElement(
+            'section',
+            {key: 'Section3'},
+            React.createElement('label', {htmlFor: 'category-details', id: 'details-label', key: 'CategoryDetailsLabel'}, 'Details: '),
+            React.createElement('input', {type: 'text', id: 'category-details', name: 'category-details', placeholder: 'details...', key: 'CategoryDetailsField'})
+        ),
+        React.createElement(
+            'section',
+            {key: 'Section4'},
+            React.createElement('label', {htmlFor: 'category-due', id: 'due-label', key: 'CategoryDueLabel'}, 'Due Date: '),
+            React.createElement('input', {type: 'date', id: 'category-due', name: 'category-due', key: 'CategoryDueField'})
+        ),
+        React.createElement(
+            'section',
+            {key: 'Section5'},
+            React.createElement('label', {htmlFor: 'points', id: 'points-label', key: 'CategoryPointsLabel'}, 'Points: '),
+            React.createElement(
+                'select', 
+                {id: 'points-dropdown', name: 'points', key: 'CategoryPointsDropDown'},
+                ['1', '2', '3', '4', '5', '6', '7', '8', '9', '10'].map((x) => React.createElement('option', {value: x, key: `${x}Point`}, x))
+            )
+        )
+    ),
+
+    QueueArea: (queue, checkMultiplier) => {
+        var items = queue.activeCategories();
+        if (items.length == 0) {
+            console.log('item length is 0:', items)
+            return;
+        };
+        return React.createElement(
+            'div', 
+            {'key': "queue-container", 'id': 'queue', key: 100*Math.random},
+            items.map((x) => {
+                console.log("from items.map",x, queue.peekAt(x), checkMultiplier(new Date))
+                return Comps.QueueSingle(x, queue.peekAt(x), checkMultiplier)
+            })
+        );
+    },
+
+    QueueSingle: (category, queueItem, checkMultiplier) => {
+        console.log('queueSingle1', category, queueItem)
+        var dueDate = new Date((queueItem['due'].getDate)? queueItem['due']: Date.parse(queueItem['due']))
+        console.log('queueSingle2', category, queueItem, dueDate)
+
+        return React.createElement(
+            'div',
+            {className: 'queue-category', id: Comps.queueIds[category], key: `${category}Queue`},
+            React.createElement(
+                'section', 
+                {className: 'queue-head', key: `${category}QueueSection1`},
+                React.createElement('div', {className: 'queue-line queue-category-head', key: `${category}QueueCategoryLabel`}, category),
+                React.createElement('div', {className: 'queue-line queue-due', key: `${category}QueueDueDisplay`}, `Due:  ${dueDate.getMonth() + 1}/${dueDate.getDate()}`)
+            ),
+            React.createElement(
+                'div', 
+                {className: 'queue-bar', key: `${category}QueueBar1`},
+                React.createElement(
+                    'section',
+                    {className: 'queue-title', key: `${category}QueueSection2`},
+                    React.createElement('div', {className: 'queue-line queue-todo-title' , key: `${category}QueueToDoLabel`}, 'To-Do: '),
+                    React.createElement('div', {className: 'queue-line queue-subject-title' , key: `${category}QueueSubjectLabel`}, 'Subject: '),
+                    React.createElement('button', {className: 'queue-line queue-button-right complete' , key: `${category}QueueCompleteButton`}, 'Complete')
+                ),
+                React.createElement(
+                    'section',
+                    {className: 'queue-area queue-contents', key: `${category}QueueSection3`},
+                    React.createElement('div', {className: "queue-line queue-todo queue-contents" ,key: `${category}QueueToDoItem`}, queueItem['todo']),
+                    React.createElement('div', {className: "queue-line queue-subject queue-contents" ,key: `${category}QueueSubject`}, queueItem['subject']),
+                    React.createElement('button', {className: "queue-line queue-button-right delete" ,key: `${category}QueueDeleteButton`}, 'Delete')
+                )
+            ),
+            React.createElement(
+                'section', 
+                {className: 'queue-bar queue-contents', key: `${category}QueueBar2`},
+                React.createElement('div', {className: 'queue-line queue-details queue-contents', key: `${category}QueueDetailsDisplay`}, queueItem['details']),
+                React.createElement('div', {className: 'queue-line queue-points queue-multiplier queue-contents', key: `${category}QueueMultDisplay`}, `x${checkMultiplier(dueDate)}`),
+                React.createElement('div', {className: 'queue-line queue-points points queue-contents', key: `${category}QueuePointDisplay`}, queueItem['points'])
+            )
+        )
+    },
+};
+
+
+
 
 /**
  * Class controls all user interface manipulations
@@ -7,353 +149,193 @@
  */
 class View {
     constructor() {
-        this.que        = {};
-        this.needed     = {};
-        this.scoreboard = {};
-        this.createSubject     = document.querySelector('#create-subject');
-        this.subjectControl    = document.querySelector('#control');
-        this.subjectCategories = document.querySelector('#add-items') || '';
-        this.scoreboard.id     = document.getElementById('score');
-        this.que.id            = document.getElementById('que-list'); 
-        this.needed.due = 0;
-        this.needed.que = 0;
-    };
+        this.state = 0
 
-
-    /**
-     * Function constructs the subject list drop down and appends an option for
-     *  each subject created by the user
-     */
-    subjectList(subjects) {
-        var displayArea = document.getElementById('subject-subcategories')
-        if (subjects.length == 0) {
-            while (displayArea.firstChild) {
-                displayArea.removeChild(displayArea.firstChild)
-            }; 
-            return this;
-        } else if (!(document.getElementById('subject-list'))) {
-            if (!document.getElementById('subject-list-label')) {
-                var label = document.createElement('label');
-                label.innerText = "Subject: ";
-                label.htmlFor = 'subjects';
-                label.id = 'subject-list-label';
-                displayArea.append(label);
-            };
-
-            var list = document.createElement('select');
-            list.name = "subjects";
-            list.id = 'subject-list';
-            displayArea.append(list);
-        } else {
-            var list = document.getElementById('subject-list');
-        };
-
-        while (list.firstChild) {
-            list.removeChild(list.firstChild);
-        };
-
-        subjects.forEach((x)=>{
-            var option = document.createElement("option");
-            option.textContent = x;
-            option.value = x;
-            option.className = x;
-            list.append(option);
-        });
         
-        this.createSubjectItems()
-        this.subjectCategories = document.querySelector('#add-items')
+        this.left = document.getElementById('Left_Panel')
+        this.middle = document.getElementById('Middle_Panel')
+        this.right = document.getElementById('Right_Panel')
+        
         return this;
     };
 
 
-    /**
-     * function creates input fields to add items to 
-     *  the que under their subjects and categories
-     */
-    createSubjectItems() {
-        if (document.getElementById('subject-list') && !document.getElementById('add-items')) {
-            var displayArea = document.getElementById('subject-subcategories');
+    bindData(model) {
+        this.model = model;
 
-            var newDiv = document.createElement('div');
-            newDiv.className = "subcategories";
-            newDiv.innerHTML = template('subject-panel');
-            newDiv.id = 'addToDo';
-            displayArea.append(newDiv);
-            this.subjectToDo = document.getElementById('addToDo')
-            
-            var button = document.createElement('button');
-            button.id = "add-items";
-            button.textContent = 'Submit';
-            displayArea.append(button);
+        return this;
+    }
+
+    setPosition() {
+        console.log('state', this.state)
+        switch(this.state) {
+            case 1:
+                this.controlPosition = this.middle;
+                this.sbPosition = '';
+                this.queuePosition = '';
+                break;
+            case 2:
+                this.controlPosition = this.middle;
+                this.sbPosition = '';
+                this.queuePosition = '';
+                break;
+            case 3:
+                console.log('from setPosition, state=', this.state)
+                this.controlPosition = this.right;
+                this.sbPosition = this.middle;
+                this.queuePosition = this.left;
+                break;
+            case 4:
+                this.controlPosition = this.left;
+                this.sbPosition = this.right;
+                this.queuePosition = this.middle;
+                break;
         };
-        this.categorySelectors();
+
+        return this;
+    };
+
+    update(state) {
+        if(this.state !== state) {
+            this.state = state;
+            this.renderDOM()
+        };
+    };
+
+    cleanDOM() {
+        // this.controlPosition = '';
+        // this.queuePosition = '';
+        // this.sbPosition = '';
+        console.log('Componenet unmounted at left: ', ReactDOM.unmountComponentAtNode(this.left))
+        console.log('Componenet unmounted at middle: ', ReactDOM.unmountComponentAtNode(this.middle))
+        console.log('Componenet unmounted at right: ', ReactDOM.unmountComponentAtNode(this.right))
+        return this;
+    };
+
+    renderDOM() {
+        this.cleanDOM().setPosition();
+        this.cleanDOM().setPosition();
+        this.virtualControlPanel()
+        this.virtualQueue()
+        this.virtualScoreboard()
+        
+        if(this.controlPosition !== '') { 
+            console.log('from renderDOM:', this.controlPanel, this.controlPosition)
+            ReactDOM.render(this.controlPanel, this.controlPosition, ()=>console.log('rendered control panel at: ', this.controlPosition.id))
+            this.controlSelectors();
+        } else;
+        
+        if(this.queuePosition !== '') { 
+            ReactDOM.render(this.queueView, this.queuePosition, ()=>console.log("rendered Que at:", this.queuePosition.id));
+            this.queueSelectors();
+        };
+
+        if(this.sbPosition !== '') { 
+            ReactDOM.render(this.scoreboardView, this.controlPosition);
+        };
+
+        return this;
+    };
+
+    virtualControlPanel(state) {
+        this.state = state || this.state;
+        console.log("state from virtualControlPanel: ", this.state)
+        if(this.state < 2){
+            this.controlPanel = Comps.Ctr() 
+        } else {
+            console.log('control panel: ', this.controlPanel)    
+            this.controlPanel = Comps.Ctr(Comps.CtrFillSubject(this.model.subjects)) 
+            console.log('control panel: ', this.controlPanel)  
+            
+        };
+        
+        return this;
+    };
+
+    virtualQueue() {
+        if(this.state > 2) {
+            this.queueView = Comps.QueueArea(this.model.Q, this.model.checkMultiplier)
+        };
+
+        return this;
+    };
+
+    virtualScoreboard() {
+        this.scoreboardView = '';
+
+        return this;
+    };
+
+    updateControlPanel() {
+        if(this.controlPosition !== '') { 
+            ReactDOM.render(this.controlPanel, this.controlPosition)
+            this.controlSelectors();
+        };
+
+        return this;
+    };
+
+    updateQueue() {
+        if(this.queuePosition !== '') {
+            ReactDOM.render(this.queueView, this.queuePosition)
+            this.queueSelectors();
+        };
+
+        return this;
+    }
+
+    controlSelectors() {
+        this.newSubjectField = document.getElementById('createSubject')
+        this.createSubjectButton = document.getElementById('create-subject-button')
+        if(this.state > 1) {
+            this.createTodoButton = document.getElementById('add-items'),
+            this.createTodo = {},
+
+            this.createTodo.subject  = document.getElementById('subject-list'),
+            this.createTodo.category = document.getElementById('category-list'),
+            this.createTodo.todo     = document.getElementById("category-input"),
+            this.createTodo.detail   = document.getElementById('category-details'),
+            this.createTodo.due      = document.getElementById('category-due'),
+            this.createTodo.point    = document.getElementById('points-dropdown')
+        };
+        
+        return this;
+    };
+
+    queueSelectors() {
+
         return this;
     };
 
 
+    
     /**
      * function checks to make sure the input fields on the subject panel
      *  have been properly entered. If not appends a message to guide the
      *  user to the bottom of the panel
      */
     checkToDoInput() {
-        var parsedDate = Date.parse(this.dueSelector.value);
-        if (isNaN(parsedDate) || this.todoSelector.value == '') {
-            if (this.needed.due == 0) {
+        var parsedDate = Date.parse(this.createTodo.due.value);
+        console.log('date: ',parsedDate)
+        console.log('todays date: ',Date.parse(new Date) < parsedDate)
+        this.subjectToDo = document.getElementById('addToDo');
+        if (isNaN(parsedDate) || this.createTodo.todo.value == '') {
+            console.log("childeren", this.subjectToDo.children.length);
+            if(this.subjectToDo.children.length == 5) { 
                 var needDue = document.createElement("p");
-                needDue.innerText = 'Item and Due Date are required to create new Todo';
+                needDue.innerText = 'valid To-Do and Due Date are required to create a new To-Do item';
                 this.subjectToDo.append(needDue);
-                this.needed.due = 1;
             };
+
             return false;
-        } else if (this.needed.due == 1) {
-            this.needed.due = 0;
+        } else if(this.subjectToDo.children.length > 5) {
             this.subjectToDo.removeChild(this.subjectToDo.lastChild);
         };
         return true;
     };
-
-
-    /**
-     * function constructs each categories cell in the que interface
-     *  using the queTemplate from ./templates.js
-     */
-    constructQue(category) {
-        var newQue = document.createElement('div');
-        newQue.id = 'que';
-        newQue.innerHTML = queTemplate(category);
-        this.que.id.append(newQue);
-        this.queSelectors();
-        return this;
-    };
-
-
-    /**
-     * Function creates the scoreboard interface using
-     *  the scoreboard template from ./template.js
-     */
-    constructScoreboard() {
-        var sb = document.createElement('div');
-        sb.id = "scoreboard";
-        sb.innerHTML = template('scoreboard');
-        this.scoreboard.id.append(sb);
-        this.sbSelectors();
-        return this;
-    };
-
-
-    populateQue(data){
-        var categories = data.categories;
-        var tableData = data.que;
-
-
-        for (var x of categories) {
-            var quePanel = this.que[x]
-            if (tableData[x][0]) {
-                var queData = tableData[x][0];
-                quePanel.due.innerText = "Due Date: " + ` ${queData.due.getMonth() +1}/${queData.due.getDate()}`;
-                quePanel.subject.innerText = `${queData.subject}`;
-                quePanel.todo.innerText = `${queData.todo}`;
-                quePanel.details.innerText = `${queData.details}`;
-                quePanel.points.innerText = `${queData.points}`;
-                quePanel.multiplier.innerText = `x${data.checkMultiplier(queData.due)}`;
-            };
-        };
-    };
     
-    /**
-     * Function populates the scoreboard with the 
-     *  score stored in the model.sb.score object
-     *  passed in from the controller object
-     * 
-     * NEEDS REFACTORED TO USE LOOPS
-     */
-    populateSB(score) {
-        this.scoreboard.monday.points.innerText    = score.Monday.Points;
-        this.scoreboard.tuesday.points.innerText   = score.Tuesday.Points;
-        this.scoreboard.wednesday.points.innerText = score.Wednesday.Points;
-        this.scoreboard.thursday.points.innerText  = score.Thursday.Points;
-        this.scoreboard.friday.points.innerText    = score.Friday.Points;
-        this.scoreboard.saturday.points.innerText  = score.Saturday.Points;
-        this.scoreboard.sunday.points.innerText    = score.Sunday.Points;
-        this.scoreboard.total.points.innerText     = score.Total.Points;
-        this.scoreboard.historic.points.innerText  = score['Historic Total'].Points;
-
-        this.scoreboard.monday.lastWeek.innerText     = score.Monday['Last Week'];
-        this.scoreboard.tuesday.lastWeek.innerText    = score.Tuesday['Last Week'];
-        this.scoreboard.wednesday.lastWeek.innerText  = score.Wednesday['Last Week'];
-        this.scoreboard.thursday.lastWeek.innerText   = score.Thursday['Last Week'];
-        this.scoreboard.friday.lastWeek.innerText     = score.Friday['Last Week'];
-        this.scoreboard.saturday.lastWeek.innerText   = score.Saturday['Last Week'];
-        this.scoreboard.sunday.lastWeek.innerText     = score.Sunday['Last Week'];
-        this.scoreboard.total.lastWeek.innerText      = score.Total['Last Week'];
-        this.scoreboard.historic.lastWeek.innerText   = score['Historic Total']['Last Week'];
-
-        this.scoreboard.monday.historic.innerText     = score.Monday['Historic High'];
-        this.scoreboard.tuesday.historic.innerText    = score.Tuesday['Historic High'];
-        this.scoreboard.wednesday.historic.innerText  = score.Wednesday['Historic High'];
-        this.scoreboard.thursday.historic.innerText   = score.Thursday['Historic High'];
-        this.scoreboard.friday.historic.innerText     = score.Friday['Historic High'];
-        this.scoreboard.saturday.historic.innerText   = score.Saturday['Historic High'];
-        this.scoreboard.sunday.historic.innerText     = score.Sunday['Historic High'];
-        this.scoreboard.total.historic.innerText      = score.Total['Historic High'];
-        this.scoreboard.historic.historic.innerText   = score['Historic Total']['Historic High'];
-
-        return this;
-    };
-
-    cleanQue(category) {
-        var que = this.que[category];
-
-        que.due.innerText = "Due Date: ";
-        que.subject.innerText = ``;
-        que.todo.innerText = `Nothing`;
-        que.details.innerText = `None`;
-        que.points.innerText = `0`;
-        que.multiplier.innerText = `x1`;
-    };
 
 
-
-    /**
-     * Function instantiates selectors for the que
-     *  and stores their reference in the view.que object
-     * 
-     * NEEDS REFACTORED TO USE LOOPS
-     */
-    queSelectors() {
-        this.que.Homework = {};
-        this.que.Homework.id         = document.getElementById('homework-que');
-        this.que.Homework.due        = document.querySelector('#homework-que .que-due');
-        this.que.Homework.todo       = document.querySelector('#homework-que .que-todo');
-        this.que.Homework.subject    = document.querySelector('#homework-que .que-subject');
-        this.que.Homework.delete     = document.querySelector('#homework-que .delete');
-        this.que.Homework.complete   = document.querySelector('#homework-que .complete');
-        this.que.Homework.details    = document.querySelector('#homework-que .que-details');
-        this.que.Homework.points     = document.querySelector('#homework-que .points');
-        this.que.Homework.multiplier = document.querySelector('#homework-que .que-multiplier');
-        
-        this.que.Projects = {};
-        this.que.Projects.id         = document.getElementById('project-que');
-        this.que.Projects.due        = document.querySelector('#project-que .que-due');
-        this.que.Projects.todo       = document.querySelector('#project-que .que-todo');
-        this.que.Projects.subject    = document.querySelector('#project-que .que-subject');
-        this.que.Projects.delete     = document.querySelector('#project-que .delete');
-        this.que.Projects.complete   = document.querySelector('#project-que .complete');
-        this.que.Projects.details    = document.querySelector('#project-que .que-details');
-        this.que.Projects.points     = document.querySelector('#project-que .points');
-        this.que.Projects.multiplier = document.querySelector('#project-que .que-multiplier');
-        
-        this.que.Reading = {};
-        this.que.Reading.id         = document.getElementById('reading-que');
-        this.que.Reading.due        = document.querySelector('#reading-que .que-due');
-        this.que.Reading.todo       = document.querySelector('#reading-que .que-todo');
-        this.que.Reading.subject    = document.querySelector('#reading-que .que-subject');
-        this.que.Reading.delete     = document.querySelector('#reading-que .delete');
-        this.que.Reading.complete   = document.querySelector('#reading-que .complete');
-        this.que.Reading.details    = document.querySelector('#reading-que .que-details');
-        this.que.Reading.points     = document.querySelector('#reading-que .points');
-        this.que.Reading.multiplier = document.querySelector('#reading-que .que-multiplier');
-        
-        this.que.Tests = {};
-        this.que.Tests.id         = document.getElementById('test-que');
-        this.que.Tests.due        = document.querySelector('#test-que .que-due');
-        this.que.Tests.todo       = document.querySelector('#test-que .que-todo');
-        this.que.Tests.subject    = document.querySelector('#test-que .que-subject');
-        this.que.Tests.delete     = document.querySelector('#test-que .delete');
-        this.que.Tests.complete   = document.querySelector('#test-que .complete');
-        this.que.Tests.details    = document.querySelector('#test-que .que-details');
-        this.que.Tests.points     = document.querySelector('#test-que .points');
-        this.que.Tests.multiplier = document.querySelector('#test-que .que-multiplier');
-        
-        this.que.Videos = {};
-        this.que.Videos.id         = document.getElementById('video-que');
-        this.que.Videos.due        = document.querySelector('#video-que .que-due');
-        this.que.Videos.todo       = document.querySelector('#video-que .que-todo');
-        this.que.Videos.subject    = document.querySelector('#video-que .que-subject');
-        this.que.Videos.delete     = document.querySelector('#video-que .delete');
-        this.que.Videos.complete   = document.querySelector('#video-que .complete');
-        this.que.Videos.details    = document.querySelector('#video-que .que-details');
-        this.que.Videos.points     = document.querySelector('#video-que .points');
-        this.que.Videos.multiplier = document.querySelector('#video-que .que-multiplier');
-
-        return this;
-    };
-
-
-    /**
-     * Function instantiates selectors for the scoreboard
-     *  and stores their reference in the view.scoreboard object
-     * 
-     * NEEDS REFACTORED TO USE LOOPS
-     */
-    sbSelectors() {
-        this.scoreboard.monday      = {};
-        this.scoreboard.tuesday     = {};
-        this.scoreboard.wednesday   = {};    
-        this.scoreboard.thursday    = {};    
-        this.scoreboard.friday      = {};
-        this.scoreboard.saturday    = {};    
-        this.scoreboard.sunday      = {};
-        this.scoreboard.total       = {};
-        this.scoreboard.historic    = {};
-
-        this.scoreboard.monday.id      = document.querySelector('#monday');
-        this.scoreboard.tuesday.id     = document.querySelector('#tuesday');
-        this.scoreboard.wednesday.id   = document.querySelector('#wednesday');
-        this.scoreboard.thursday.id    = document.querySelector('#thursday');
-        this.scoreboard.friday.id      = document.querySelector('#friday');
-        this.scoreboard.saturday.id    = document.querySelector('#saturday');
-        this.scoreboard.sunday.id      = document.querySelector('#sunday');
-        this.scoreboard.total.id       = document.querySelector('#totals_row');
-        this.scoreboard.historic.id    = document.querySelector('#totals_historic_row');
-        
-        this.scoreboard.monday.points      = document.querySelector('#monday .points');
-        this.scoreboard.tuesday.points     = document.querySelector('#tuesday .points');
-        this.scoreboard.wednesday.points   = document.querySelector('#wednesday .points');
-        this.scoreboard.thursday.points    = document.querySelector('#thursday .points');
-        this.scoreboard.friday.points      = document.querySelector('#friday .points');
-        this.scoreboard.saturday.points    = document.querySelector('#saturday .points');
-        this.scoreboard.sunday.points      = document.querySelector('#sunday .points');
-        this.scoreboard.total.points       = document.querySelector('#totals_row .points');
-        this.scoreboard.historic.points    = document.querySelector('#totals_historic_row .points');
-        
-        this.scoreboard.monday.lastWeek      = document.querySelector('#monday .totals_prev');
-        this.scoreboard.tuesday.lastWeek     = document.querySelector('#tuesday .totals_prev');
-        this.scoreboard.wednesday.lastWeek   = document.querySelector('#wednesday .totals_prev');
-        this.scoreboard.thursday.lastWeek    = document.querySelector('#thursday .totals_prev');
-        this.scoreboard.friday.lastWeek      = document.querySelector('#friday .totals_prev');
-        this.scoreboard.saturday.lastWeek    = document.querySelector('#saturday .totals_prev');
-        this.scoreboard.sunday.lastWeek      = document.querySelector('#sunday .totals_prev');
-        this.scoreboard.total.lastWeek       = document.querySelector('#totals_row .totals_prev');
-        this.scoreboard.historic.lastWeek    = document.querySelector('#totals_historic_row .totals_prev');
-        
-        this.scoreboard.monday.historic      = document.querySelector('#monday .totals_historic_column');
-        this.scoreboard.tuesday.historic     = document.querySelector('#tuesday .totals_historic_column');
-        this.scoreboard.wednesday.historic   = document.querySelector('#wednesday .totals_historic_column');
-        this.scoreboard.thursday.historic    = document.querySelector('#thursday .totals_historic_column');
-        this.scoreboard.friday.historic      = document.querySelector('#friday .totals_historic_column');
-        this.scoreboard.saturday.historic    = document.querySelector('#saturday .totals_historic_column');
-        this.scoreboard.sunday.historic      = document.querySelector('#sunday .totals_historic_column');
-        this.scoreboard.total.historic       = document.querySelector('#totals_row .totals_historic_column');
-        this.scoreboard.historic.historic    = document.querySelector('#totals_historic_row .totals_historic_column');
-
-        return this;
-    };
-
-
-    /**
-     * function instantiates selectors for newly created 
-     *  dom elements for the controller to access
-     */
-    categorySelectors() {
-        this.subjectSelector  = document.getElementById('subject-list');
-        this.categorySelector = document.getElementById('category-list');
-        this.todoSelector     = document.getElementById("category-input");
-        this.detailSelector   = document.getElementById('category-details');
-        this.dueSelector      = document.getElementById('category-due');
-        this.pointSelector    = document.getElementById('points-dropdown');
-        return this;
-    };
 };
 
+export {View}

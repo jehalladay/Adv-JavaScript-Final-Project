@@ -5,8 +5,8 @@
   "main": "mvc.js",
   "type": "module",
   "scripts": {
-    "test": "jest",
-    "test2": "node test.js test"
+    "start": "jest",
+    "test": "node /test/tester.js test"
   },
   "author": "James E. Halladay",
   "license": "MIT",
@@ -14,5 +14,9 @@
     "@babel/preset-env": "^7.9.5",
     "babel-jest": "^25.4.0",
     "jest": "^25.4.0"
+  },
+  "dependencies": {
+    "react": "^16.13.1",
+    "react-dom": "^16.13.1"
   }
 }

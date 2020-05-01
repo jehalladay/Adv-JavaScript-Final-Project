@@ -2,7 +2,7 @@
 
 export {Queue};
 
-
+ 
 class Queue {
     constructor(queue) {
         this.queue = queue || {Homework: [], Projects: [], Reading: [], Tests: [], Videos: []};
@@ -17,16 +17,23 @@ class Queue {
         return this;
     };
 
+    activeCategories() {
+        return this.categories.filter((x)=> this.queue[x][0] !== undefined);
+        
+    }
+
 
     currentItems() {
-        var upNext = this.categories.map((x)=>{
-            return this.queue[x][0];
-        });
+        console.log('state of the queue', this.queue)
+        var upNext = this.categories.filter((x)=> this.queue[x][0] !== undefined)
+        .map((y) => this.queue[y][0]);
+        console.log('state of the queue after filter', upNext)
         return upNext;
     };
 
 
     pushTo(category, item) {
+        console.log('from queue:: pushTo(category, item):', category, item)
         if (this.categories.some((x) => x === category)) {
             this.queue[category].push(item);
         };
