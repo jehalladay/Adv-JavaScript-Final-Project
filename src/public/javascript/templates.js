@@ -9,6 +9,7 @@ export {template, queTemplate}
 
 
 function template(stringName) {
+    console.log("hello from template")
     if (stringName == 'subject-panel') {
         var temp = `
         <section>

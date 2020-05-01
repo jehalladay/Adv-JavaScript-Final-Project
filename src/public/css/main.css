@@ -20,9 +20,7 @@ rgb(156, 95, 61)    subdued orange
 
 .navIn {
     padding:.5rem;
-    /* background-color: #31465a; */
-    background-color: #323232;
-
+    background-color: #31465a;
 }
 
 .navIn p {
@@ -46,18 +44,12 @@ header {
 
 #background {
     padding-top: 1rem;
-    /* background-color: #360f0f; */
-    /* background-color:lightseagreen; */
-    background-color: #31465a;
-
+    background-color: #360f0f;
     color: #dddddd;
 }
 
 body {
-    /* background-color: #323232; */
-    
-    background-color: #31465a;
-
+    background-color: #323232;
 }
 
 button {
@@ -65,18 +57,6 @@ button {
     background-color: rgb(255, 130, 62);
     color: #323232;
     border-radius: 8px;
-    margin-left: .2rem;
-    margin-right: .2rem;
-}
-
-button:hover {
-    border: solid 1pt seagreen;
-    background-color:lightseagreen;
-    /* border: solid 1pt green;
-    background-color:lightgreen; */
-    color: #323232;
-    border-radius: 8px;
-
 }
 
 
@@ -89,12 +69,6 @@ button:hover {
     font-size: 10pt;
     line-height: 12pt;
     padding-bottom: 2rem;
-    background-color: #360f0f;
-    
-    padding: .1rem;
-    border: 2.5pt solid black;
-    border-radius: 16px;
-
 }
 
 #control-title {
@@ -103,15 +77,7 @@ button:hover {
     background-color: #b94b4f ;
     border-radius: 4px;
     width: 40%;
-    margin-top: 1rem;
     margin-left: 30%;
-}
-
-#control-subject-label {
-    text-align: left;
-    margin-left: 10%;
-    margin-top: .2rem;
-    margin-bottom: .3rem;
 }
 
 #create-subject-label {
@@ -119,15 +85,8 @@ button:hover {
 }
 
 #create-subject {
-    text-align: right;
-    margin-bottom: 1rem;
-    
-}
+    float: right;
 
-#subject-submit {
-    margin-bottom: .5rem;
-    text-align: right;
-    
 }
 
 #subject-list-label {
@@ -152,24 +111,20 @@ button:hover {
 }
 
 #subject-subcategories {
-    padding-top: 1rem;
-    margin-left: 1rem;
-    margin-right: 1rem;
+    padding-top: 3rem;
 }
 
 #subject-subcategories button {
-    text-align: right;
-
-    /* float: right; */
+    float: right;
 }
 
 
 
 
 
-/* Queue */
+/* Que */
 
-.queue-category {
+.que-category {
     font-size: 8pt;
     margin: .2rem;
     padding: .1rem;
@@ -180,7 +135,7 @@ button:hover {
     line-height: 1;
 }
 
-.queue-category-head {
+.que-category-head {
     background-color: #b94b4f; 
     padding-left:  .5rem; 
     padding-bottom:  .6rem;
@@ -191,48 +146,48 @@ button:hover {
     width: 40%;
 }
 
-.queue-head, .que-title {
+.que-head, .que-title {
     font-size: 10pt;
 }
 
-.queue-line {
+.que-line {
     display: inline-block;
 }
 
-.queue-todo , .que-todo-title {
+.que-todo , .que-todo-title {
     width: 35%;
 }
 
-.queue-subject, .que-subject-title {
+.que-subject, .que-subject-title {
     width: 32%;
 }
 
-.queue-contents {
+.que-contents {
     font-weight: 300;
     line-height: .9;
     font-size: 8pt;
 }
 
-.queue-button-right {
+.que-button-right {
     /* float: right;
     margin-right: 5px; */
     font-size: 10pt;
     width: 30%;
 }
 
-.queue-details {
+.que-details {
     width: 77%;
 }
 
-.queue-points {
+.que-points {
     width: 10%
 }
 
-.queue-multiplier {
+.que-multiplier {
     width: 10%
 }
 
-.queue-bar {
+.que-bar {
     margin: .2rem;
     padding-bottom: 0.5rem;
     padding-left: .5rem;
@@ -242,12 +197,12 @@ button:hover {
     background-color: #31465a;
 }
 
-.queue-title {
+.que-title {
     border-radius: 4px;
     background-color: #31465a ;
 }
 
-.queue-area {
+.que-area {
     padding-top: 5px;
 }
 

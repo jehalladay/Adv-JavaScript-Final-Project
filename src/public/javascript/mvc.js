@@ -59,8 +59,8 @@ I also need to create a set of methods for the Model Class to fetch old data fro
 **************************************************************************
 */
 
-import {Scoreboard} from "./models/scoreboard.js";
-import {template, queTemplate} from "./views/templates.js";
+import {Scoreboard} from "./scoreboard.js";
+import {template, queTemplate} from "./templates.js";
 
 'use strict'
 
@@ -117,7 +117,6 @@ class Model{
             };
         });
         console.log(section);
-        console.log("Queue: ",this.que)
         return this;
     };
 
@@ -127,19 +126,16 @@ class Model{
      *  depends on how soon the todo item is due
      */
     checkMultiplier(dueDate) {
-        var output = dueDate === ''? 0: 1;
-        if (output = 0) {
-            return output 
-        };
         var today = Date.parse(new Date);
         var item  = Date.parse(dueDate);
         var difference = (item - today)/3600000;
         if (difference < 6) {
-            var output = 2;
+            return 2;
         } else if (difference < 12) {
-            var output = 1.5;
+            return 1.5;
+        } else {
+            return 1;
         };
-        return output;
     };
 
 
@@ -153,7 +149,7 @@ class Model{
             this.completedQue[category].push(data);
             var points = parseInt(data.points) * this.checkMultiplier(data.due);
             this.sb.setPoints(points);
-            console.table(this.sb.score);
+            console.table(this.sb.score)
         };
     }
 
@@ -543,6 +539,8 @@ class Controller {
         } else {
             this.restoreState();
         };
+
+
     };
 
 
@@ -574,8 +572,10 @@ class Controller {
      *  for the Add New Subject area of the Subject Control Panel
      */
     controlListener() {
+        console.log('outside listener 1')
         this.view.createSubject.children[1].addEventListener('click', (event) => {
             var subjects = this.model.subjects;
+            console.log('inside listener 1')
             var value = this.view.createSubject.children[0].value;
             if (!(subjects.some((x) => x == value)) && value != '') {
                 subjects.push(value);

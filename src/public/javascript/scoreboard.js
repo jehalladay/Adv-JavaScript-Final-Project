@@ -67,6 +67,7 @@ class Scoreboard {
      * returns Scoreboard to allow for Method Chaining
      */
     constructor(currentScore) {
+        console.log('hello from scoreboard')
         this.score = currentScore || {
             "Monday"        : {"Points": 0,   "Last Week": 0,   "Historic High": 0},
             "Tuesday"       : {"Points": 0,   "Last Week": 0,   "Historic High": 0},
