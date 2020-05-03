@@ -13,7 +13,7 @@ router.get('/',(req,res)=>res.render('welcome'));
 // router.get('/quiz',ensureAuthenticated,(req,res)=>res.render('quiz',{name:req.user.name, title: 'Planner'}));
 
 //planner page
-router.get('/planner',ensureAuthenticated,(req,res)=>res.render('planner',{name:req.user.name}));
+router.get('/planner',ensureAuthenticated,(req,res)=>res.render('planner',{name:req.user.name, title: 'Planner'}));
 
 
 module.exports=router;
