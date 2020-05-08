@@ -17,6 +17,12 @@ class Queue {
         return this;
     };
 
+    shiftIndexOut(category, index) {
+        this.queue[category].splice(index, 1);
+
+        return this;
+    }
+
     activeCategories() {
         return this.categories.filter((x)=> this.queue[x][0] !== undefined);
         
@@ -76,5 +82,50 @@ class Queue {
         console.log(this.queue);
         return this;
     };
+
+    
+    createTestQueue() {
+        this.queue = {
+            "Homework": [
+                {
+                    "task": "hw1",
+                    "subject": "mechanics",
+                    "due": new Date(Date.parse("2020-05-24T06:00:00.000Z")),
+                    "category": '',
+                    "details": "",
+                    "link": "",
+                    "points": 1
+                }
+            ],
+            "Projects": [
+            ],
+            "Reading": [
+            ],
+            "Tests": [
+            ],
+            "Videos": [
+            ]
+        };
+
+        return this;
+    }
+
+    createTestMQueue() {
+        this.queue = {
+            master: [
+                {
+                    "task": "First Assignment",
+                    "subject": "mechanics",
+                    "due": new Date(Date.parse("2020-05-24T06:00:00.000Z")),
+                    "type": 'Homework',
+                    "details": "The first assignment for my Mechanics class",
+                    "link": "http://www.google.com",
+                    "points": 5
+                }
+            ]
+        };
+
+        return this;
+    }
 
 };

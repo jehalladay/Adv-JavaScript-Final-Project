@@ -43,9 +43,12 @@ header {
 
 .welcome
 {   
+<<<<<<< HEAD
     /* margin-top:100px;
     margin-left:450px; */
 
+=======
+>>>>>>> james_client
     text-align: center;
     padding-top: 6rem;
     
@@ -55,7 +58,11 @@ header {
 /* Main Body */
 
 #background {
+<<<<<<< HEAD
     padding-top: 1rem;
+=======
+    /* padding-top: 1rem; */
+>>>>>>> james_client
     background-color: #31465a;
     /* background-color: lightseagreen; */
     /* background-color: #360f0f; */
@@ -67,19 +74,34 @@ body {
     background-color: #323232;
 }
 
+<<<<<<< HEAD
 button {
     border: solid 1pt rgb(255, 130, 62);
     background-color: rgb(255, 130, 62);
     color: #323232;
     border-radius: 4px;
+=======
+.title-box {
+    background-color: #b94b4f ;
+    border-top: 1.5pt black solid;
+>>>>>>> james_client
+}
+
+/* control-container {} */
+
+.master-queue-container {
+    background-color: #3f5a73;
+}
+
+.scoreboard-container {
+    padding: 0px;
 }
 
 
+/* Utility */
 
 
-
-/* Subject control panel */
-
+<<<<<<< HEAD
 #control {
     font-size: 10pt;
     line-height: 12pt;
@@ -98,117 +120,179 @@ button {
     border-radius: 4px;
     width: 40%;
     margin-left: 30%;
+=======
+select {
+    /* for Firefox */
+    -moz-appearance: none;
+    /* for Chrome */
+    -webkit-appearance: none;
 }
 
-#create-subject-label {
-    float: left;
+/* For IE10 */
+select::-ms-expand {
+    display: none;
+>>>>>>> james_client
 }
 
-#create-subject {
-    float: right;
+.comp-container {
+    border: black solid 1.5pt;
+}
+
+
+.submitButton:hover {
+    background-color: #0370e4;
+    border-color: #0062cc;
+}
+
+.submitButton {
+    background-color: #007bff;
+    border-color: #007bff;
+}
+
+.completeButton {
+    background-color: #28a745;
+    border-color: #28a745;
+    padding-left: 0px;
+    padding-right: 0px;
+    font-size: xx-small;
+    text-align: center;
+}
+.completeButton:hover {
+    background-color: #218838;
+    border-color: #1e7e34;
+}
+
+.deleteButton {
+    background-color: #dc3545;
+    border-color: #dc3545;
+    padding-left: 0px;
+    padding-right: 0px;
+    font-size: xx-small;
+    text-align: center;
+}
+
+.deleteButton:hover {
+    background-color: #c82333;
+    border-color: #bd2130;
+}
+
+.button-column {
+    /* padding-right: 0px; */
+    padding-left: 0px;
+    margin-right: 0px;
+    margin-left: 0px;
 
 }
 
-#subject-list-label {
-    text-align: left;
-}
-
-.subcategories {
-    padding-top: 1rem;
-}
-
-#control input, #control select {
-    border: solid .5pt #dddddd;
-    background-color: rgb(49, 70, 90);
-    color: #dddddd;
-    width: 60%;
-    border-radius: 8px;
-
-}
-
-#subject-subcategories input, #subject-subcategories select {
-    float: right;
-}
-
+<<<<<<< HEAD
 #subject-subcategories {
     padding-top: 3rem;
     margin-bottom: 1rem;
 
+=======
+.w100 {
+    width: 100%;
+>>>>>>> james_client
 }
 
-#subject-subcategories button {
-    float: right;
+.w80 {
+    width: 80%;
 }
 
-
-
-
-
-/* Que */
-
-.que-category {
-    font-size: 8pt;
-    margin: .2rem;
-    padding: .1rem;
-    border: 2.5pt solid black;
-    border-radius: 16px;
-    /* background-color: rgb(45, 24, 15); */
-    background-color: #323232;
-    line-height: 1;
+.w75 {
+    width: 75%;
 }
 
-.que-category-head {
-    background-color: #b94b4f; 
-    padding-left:  .5rem; 
-    padding-bottom:  .6rem;
-    padding-top:  .3rem;
-    font-size: 10pt;
-    margin: .5rem;
-    border-radius: 4px;
+.w60 {
+    width: 60%;
+}
+
+.w50 {
+    width: 50%;
+}
+
+.w40 {
     width: 40%;
 }
 
-.que-head, .que-title {
-    font-size: 10pt;
+.w25 {
+    width: 25%;
 }
 
-.que-line {
-    display: inline-block;
+.w20 {
+    width: 20%;
 }
 
-.que-todo , .que-todo-title {
-    width: 35%;
+.h100 {
+    height: 100%;
 }
 
-.que-subject, .que-subject-title {
-    width: 32%;
+.h50 {
+    height: 50%;
 }
 
-.que-contents {
-    font-weight: 300;
-    line-height: .9;
-    font-size: 8pt;
+.h25 {
+    height: 25%
 }
 
-.que-button-right {
-    /* float: right;
-    margin-right: 5px; */
-    font-size: 10pt;
-    width: 30%;
+/* Subject control panel */
+
+#control-panel {
+    min-height:  40vh;
 }
 
-.que-details {
-    width: 77%;
+#new-subject-title {
+    border-bottom: 1.5pt solid black;
 }
 
-.que-points {
-    width: 10%
+.buffer {
+    min-height: 15vh;
+    border-top: 1.5pt solid black;
+
+} 
+
+#add-items {
+    border-left: 1pt black solid;
+    border-top: 1pt black solid;
 }
 
-.que-multiplier {
-    width: 10%
+
+.task-header {
+    padding-left: 5px;
+    padding-right: 10px;
+    font-size: small;
+    border-top: 1pt black solid;
+    border-right: 1pt black solid;
+
 }
 
+
+
+.input-field {
+    background-color: white;
+    border-top: 1pt black solid;
+    padding-right: 0px;
+
+}
+
+.input-field > input{
+    background-color: white;
+    border: white;
+    font-family: initial;
+    font-size: small;
+}
+
+.input-field > select{
+    background-color: white;
+    font-family: initial;
+    border: white;
+    /* float: right; */
+    text-align: right;
+    font-size: small;
+    width: 100%;
+}
+
+<<<<<<< HEAD
 .que-bar {
     margin: .2rem;
     padding-bottom: 0.5rem;
@@ -217,47 +301,111 @@ button {
     padding-top: .5rem;
     border-radius: 4px;
     background-color: #31465a;
-}
-
-.que-title {
-    border-radius: 4px;
-    background-color: #31465a ;
-}
-
-.que-area {
-    padding-top: 5px;
+=======
+.points-field {
+    border-bottom: black solid .5pt;
+>>>>>>> james_client
 }
 
 
 
+/* Queue */
 
-
-
-
-/* Scoreboard */
-
-#scoreboard {
-    margin: 1rem;
-    font-size: 10pt;
-    font-weight: 250;
-    line-height: .9;
+.master-queue-head {
+    text-align: center;
+    padding: .5rem;
+    background-color: #b94b4f ;
+    border: black solid 1pt;
 }
 
+
+
+.queue-item {
+    border: black solid 1pt;
+    border-right: black solid 1.5pt;
+    border-left: black solid 1.5pt;
+}
+
+.queue-title {
+    background-color: #3f5a73;
+    /* background-color: white; */
+    text-align: center;
+
+}
+
+.queue-title a {
+    color: white;
+}
+
+.queue-title h2 {
+    color: white;
+}
+
+.queue-left {
+    padding-right: 0px;
+    margin-right: 0px;
+}
+
+.queue-left div {
+    background-color: white;
+}
+
+.queue-left div .queue-title {
+    
+    background-color: #3f5a73;
+}
+
+.mid-queue {
+    font-size: small;
+    line-height: 1.1;
+    /* border-top: black solid 1pt;
+    border-right: black solid 1pt;
+    border-left: black solid 1pt; */
+    margin-right: 0px;
+    margin-left: 0px;
+    padding-right: 0px;
+    padding-left: 0px;
+    padding-bottom: 0px;
+    margin-bottom: 0px;
+}
+
+<<<<<<< HEAD
 #scoreboard table {
     border: solid 1pt grey;
     background-color: #323232;
     /* background-color: rgb(49, 70, 90); */
     color: #dddddd;
+=======
+.mid-queue > * {
+    border-left: black solid 1pt;
+    border-right: black solid 1pt;
+    text-align: center;
+    border-top: black solid 1pt;
+    
+>>>>>>> james_client
 }
 
-#scoreboard td, #scoreboard th {
-    border-right: solid 1pt grey;
-    border-left: solid 1pt grey;
-    color: #dddddd;
+.queue-details {
+    border-top: 1pt black solid;
+    font-size: small;
+    background-color: white;
+    /* background-color: lightseagreen; */
+    text-align: center;
+    color: black;
 }
 
+.queue-due {
+    border-top: none;
+    background-color: blue;
 
+}
 
+/* Scoreboard */
+
+.table-title {
+    text-align: center;
+    padding: .5rem;
+}
 
 
 
