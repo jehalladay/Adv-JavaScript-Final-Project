@@ -20,7 +20,9 @@ rgb(156, 95, 61)    subdued orange
 
 .navIn {
     padding:.5rem;
-    background-color: #31465a;
+    /* background-color: #31465a; */
+    background-color: #323232;
+
 }
 
 .navIn p {
@@ -29,22 +31,31 @@ rgb(156, 95, 61)    subdued orange
     font-weight: 500;
     text-align: center;
     padding-bottom: .2rem;
+    padding: 1rem;
 }
 
 header {
     padding-bottom: 1rem;
-    background-color: #2d180f;
+    background-color: #0f172d;
 }
 
+/* // welcome.ejs */
 
-
+.welcome
+{   
+    text-align: center;
+    padding-top: 6rem;
+    
+}
 
 
 /* Main Body */
 
 #background {
-    padding-top: 1rem;
-    background-color: #360f0f;
+    /* padding-top: 1rem; */
+    background-color: #31465a;
+    /* background-color: lightseagreen; */
+    /* background-color: #360f0f; */
     color: #dddddd;
 }
 
@@ -52,202 +63,297 @@ body {
     background-color: #323232;
 }
 
-button {
-    border: solid 1pt rgb(255, 130, 62);
-    background-color: rgb(255, 130, 62);
-    color: #323232;
-    border-radius: 8px;
+.title-box {
+    background-color: #b94b4f ;
+    border-top: 1.5pt black solid;
+}
+
+/* control-container {} */
+
+.master-queue-container {
+    background-color: #3f5a73;
+}
+
+.scoreboard-container {
+    padding: 0px;
 }
 
 
+/* Utility */
 
 
+select {
+    /* for Firefox */
+    -moz-appearance: none;
+    /* for Chrome */
+    -webkit-appearance: none;
+}
+
+/* For IE10 */
+select::-ms-expand {
+    display: none;
+}
+
+.comp-container {
+    border: black solid 1.5pt;
+}
+
+
+.submitButton:hover {
+    background-color: #0370e4;
+    border-color: #0062cc;
+}
+
+.submitButton {
+    background-color: #007bff;
+    border-color: #007bff;
+}
+
+.completeButton {
+    background-color: #28a745;
+    border-color: #28a745;
+    padding-left: 0px;
+    padding-right: 0px;
+    font-size: xx-small;
+    text-align: center;
+}
+.completeButton:hover {
+    background-color: #218838;
+    border-color: #1e7e34;
+}
+
+.deleteButton {
+    background-color: #dc3545;
+    border-color: #dc3545;
+    padding-left: 0px;
+    padding-right: 0px;
+    font-size: xx-small;
+    text-align: center;
+}
+
+.deleteButton:hover {
+    background-color: #c82333;
+    border-color: #bd2130;
+}
+
+.button-column {
+    /* padding-right: 0px; */
+    padding-left: 0px;
+    margin-right: 0px;
+    margin-left: 0px;
+
+}
+
+.w100 {
+    width: 100%;
+}
+
+.w80 {
+    width: 80%;
+}
+
+.w75 {
+    width: 75%;
+}
+
+.w60 {
+    width: 60%;
+}
+
+.w50 {
+    width: 50%;
+}
+
+.w40 {
+    width: 40%;
+}
+
+.w25 {
+    width: 25%;
+}
+
+.w20 {
+    width: 20%;
+}
+
+.h100 {
+    height: 100%;
+}
+
+.h50 {
+    height: 50%;
+}
+
+.h25 {
+    height: 25%
+}
 
 /* Subject control panel */
 
-#control {
-    font-size: 10pt;
-    line-height: 12pt;
-    padding-bottom: 2rem;
+#control-panel {
+    min-height:  40vh;
 }
 
-#control-title {
+#new-subject-title {
+    border-bottom: 1.5pt solid black;
+}
+
+.buffer {
+    min-height: 15vh;
+    border-top: 1.5pt solid black;
+
+} 
+
+#add-items {
+    border-left: 1pt black solid;
+    border-top: 1pt black solid;
+}
+
+
+.task-header {
+    padding-left: 5px;
+    padding-right: 10px;
+    font-size: small;
+    border-top: 1pt black solid;
+    border-right: 1pt black solid;
+
+}
+
+
+
+.input-field {
+    background-color: white;
+    border-top: 1pt black solid;
+    padding-right: 0px;
+
+}
+
+.input-field > input{
+    background-color: white;
+    border: white;
+    font-family: initial;
+    font-size: small;
+}
+
+.input-field > select{
+    background-color: white;
+    font-family: initial;
+    border: white;
+    /* float: right; */
+    text-align: right;
+    font-size: small;
+    width: 100%;
+}
+
+.points-field {
+    border-bottom: black solid .5pt;
+}
+
+
+
+/* Queue */
+
+.master-queue-head {
     text-align: center;
     padding: .5rem;
     background-color: #b94b4f ;
-    border-radius: 4px;
-    width: 40%;
-    margin-left: 30%;
-}
-
-#create-subject-label {
-    float: left;
-}
-
-#create-subject {
-    float: right;
-
-}
-
-#subject-list-label {
-    text-align: left;
-}
-
-.subcategories {
-    padding-top: 1rem;
-}
-
-#control input, #control select {
-    border: solid .5pt #dddddd;
-    background-color: rgb(49, 70, 90);
-    color: #dddddd;
-    width: 60%;
-    border-radius: 8px;
-
-}
-
-#subject-subcategories input, #subject-subcategories select {
-    float: right;
-}
-
-#subject-subcategories {
-    padding-top: 3rem;
-}
-
-#subject-subcategories button {
-    float: right;
+    border: black solid 1pt;
 }
 
 
 
-
-
-/* Que */
-
-.que-category {
-    font-size: 8pt;
-    margin: .2rem;
-    padding: .1rem;
-    border: 2.5pt solid black;
-    border-radius: 16px;
-    /* background-color: rgb(45, 24, 15); */
-    background-color: #323232;
-    line-height: 1;
+.queue-item {
+    border: black solid 1pt;
+    border-right: black solid 1.5pt;
+    border-left: black solid 1.5pt;
 }
 
-.que-category-head {
-    background-color: #b94b4f; 
-    padding-left:  .5rem; 
-    padding-bottom:  .6rem;
-    padding-top:  .3rem;
-    font-size: 10pt;
-    margin: .5rem;
-    border-radius: 4px;
-    width: 40%;
+.queue-title {
+    background-color: #3f5a73;
+    /* background-color: white; */
+    text-align: center;
+
 }
 
-.que-head, .que-title {
-    font-size: 10pt;
+.queue-title a {
+    color: white;
 }
 
-.que-line {
-    display: inline-block;
+.queue-title h2 {
+    color: white;
 }
 
-.que-todo , .que-todo-title {
-    width: 35%;
+.queue-left {
+    padding-right: 0px;
+    margin-right: 0px;
 }
 
-.que-subject, .que-subject-title {
-    width: 32%;
+.queue-left div {
+    background-color: white;
 }
 
-.que-contents {
-    font-weight: 300;
-    line-height: .9;
-    font-size: 8pt;
+.queue-left div .queue-title {
+    
+    background-color: #3f5a73;
 }
 
-.que-button-right {
-    /* float: right;
-    margin-right: 5px; */
-    font-size: 10pt;
-    width: 30%;
+.mid-queue {
+    font-size: small;
+    line-height: 1.1;
+    /* border-top: black solid 1pt;
+    border-right: black solid 1pt;
+    border-left: black solid 1pt; */
+    margin-right: 0px;
+    margin-left: 0px;
+    padding-right: 0px;
+    padding-left: 0px;
+    padding-bottom: 0px;
+    margin-bottom: 0px;
 }
 
-.que-details {
-    width: 77%;
+.mid-queue > * {
+    border-left: black solid 1pt;
+    border-right: black solid 1pt;
+    text-align: center;
+    border-top: black solid 1pt;
+    
 }
 
-.que-points {
-    width: 10%
+.queue-details {
+    border-top: 1pt black solid;
+    font-size: small;
+    background-color: white;
+    /* background-color: lightseagreen; */
+    text-align: center;
+    color: black;
 }
 
-.que-multiplier {
-    width: 10%
+.queue-due {
+    border-top: none;
+    background-color: blue;
+
 }
-
-.que-bar {
-    margin: .2rem;
-    padding-bottom: 0.5rem;
-    padding-left: .5rem;
-    padding-right: .5rem;
-    padding-top: .2rem;
-    border-radius: 4px;
-    background-color: #31465a;
-}
-
-.que-title {
-    border-radius: 4px;
-    background-color: #31465a ;
-}
-
-.que-area {
-    padding-top: 5px;
-}
-
-
-
-
-
-
 
 /* Scoreboard */
 
-#scoreboard {
-    margin: 1rem;
-    font-size: 10pt;
-    font-weight: 250;
-    line-height: .9;
+.table-title {
+    text-align: center;
+    padding: .5rem;
 }
-
-#scoreboard table {
-    border: solid 1pt grey;
-    background-color: rgb(49, 70, 90);
-    color: #dddddd;
-}
-
-#scoreboard td, #scoreboard th {
-    border-right: solid 1pt grey;
-    border-left: solid 1pt grey;
-    color: #dddddd;
-}
-
-
-
 
 
 
 /* Footer  */
 
 footer {
-    background-color: rgb(156, 95, 61);
+    background-color: lightseagreen;
+    /* background-color: rgb(156, 95, 61); */
 }
 
 footer p {
     padding-top: 1.75rem;
     margin-bottom: 1rem;
-    background-color: rgb(45, 24, 15);
+    background-color: #0f172d;
 }
 
 footer .navIn{
@@ -258,4 +364,8 @@ footer .navIn{
 .navIn aside {
     color: #dddddd;
     text-align: right;
+}
+
+.navIn section {
+    min-height: 2rem;
 }

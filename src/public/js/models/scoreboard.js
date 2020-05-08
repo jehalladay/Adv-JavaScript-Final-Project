@@ -8,6 +8,7 @@ Date: 3/30/2020
 */
 
 'use strict'
+
 export {Scoreboard}
 
 /**
@@ -67,7 +68,6 @@ class Scoreboard {
      * returns Scoreboard to allow for Method Chaining
      */
     constructor(currentScore) {
-        console.log('hello from scoreboard')
         this.score = currentScore || {
             "Monday"        : {"Points": 0,   "Last Week": 0,   "Historic High": 0},
             "Tuesday"       : {"Points": 0,   "Last Week": 0,   "Historic High": 0},
@@ -194,7 +194,9 @@ class Scoreboard {
      * returns Scoreboard to allow for method chaining
      */
     setPoints(value) {
-        var newPoints = value || 0;
+        if(isNaN(value)) return;
+
+        var newPoints = parseInt(value) || 0;
         var day = this.checkDay().currentDay;
         this.score[day].Points += newPoints;
 
