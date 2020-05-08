@@ -43,12 +43,6 @@ header {
 
 .welcome
 {   
-<<<<<<< HEAD
-    /* margin-top:100px;
-    margin-left:450px; */
-
-=======
->>>>>>> james_client
     text-align: center;
     padding-top: 6rem;
     
@@ -58,33 +52,20 @@ header {
 /* Main Body */
 
 #background {
-<<<<<<< HEAD
-    padding-top: 1rem;
-=======
     /* padding-top: 1rem; */
->>>>>>> james_client
     background-color: #31465a;
     /* background-color: lightseagreen; */
     /* background-color: #360f0f; */
     color: #dddddd;
-    min-height: 30rem;
 }
 
 body {
     background-color: #323232;
 }
 
-<<<<<<< HEAD
-button {
-    border: solid 1pt rgb(255, 130, 62);
-    background-color: rgb(255, 130, 62);
-    color: #323232;
-    border-radius: 4px;
-=======
 .title-box {
     background-color: #b94b4f ;
     border-top: 1.5pt black solid;
->>>>>>> james_client
 }
 
 /* control-container {} */
@@ -101,26 +82,6 @@ button {
 /* Utility */
 
 
-<<<<<<< HEAD
-#control {
-    font-size: 10pt;
-    line-height: 12pt;
-    background-color: #323232;
-    padding-bottom: 1rem;
-    padding: 1rem;
-    border: 2.5pt solid black;
-    border-radius: 16px;
-}
-
-#control-title {
-    text-align: center;
-    padding: .5rem;
-    margin-bottom: 1rem;
-    background-color: #b94b4f ;
-    border-radius: 4px;
-    width: 40%;
-    margin-left: 30%;
-=======
 select {
     /* for Firefox */
     -moz-appearance: none;
@@ -131,7 +92,6 @@ select {
 /* For IE10 */
 select::-ms-expand {
     display: none;
->>>>>>> james_client
 }
 
 .comp-container {
@@ -184,15 +144,8 @@ select::-ms-expand {
 
 }
 
-<<<<<<< HEAD
-#subject-subcategories {
-    padding-top: 3rem;
-    margin-bottom: 1rem;
-
-=======
 .w100 {
     width: 100%;
->>>>>>> james_client
 }
 
 .w80 {
@@ -292,19 +245,8 @@ select::-ms-expand {
     width: 100%;
 }
 
-<<<<<<< HEAD
-.que-bar {
-    margin: .2rem;
-    padding-bottom: 0.5rem;
-    padding-left: .5rem;
-    padding-right: .5rem;
-    padding-top: .5rem;
-    border-radius: 4px;
-    background-color: #31465a;
-=======
 .points-field {
     border-bottom: black solid .5pt;
->>>>>>> james_client
 }
 
 
@@ -369,20 +311,12 @@ select::-ms-expand {
     margin-bottom: 0px;
 }
 
-<<<<<<< HEAD
-#scoreboard table {
-    border: solid 1pt grey;
-    background-color: #323232;
-    /* background-color: rgb(49, 70, 90); */
-    color: #dddddd;
-=======
 .mid-queue > * {
     border-left: black solid 1pt;
     border-right: black solid 1pt;
     text-align: center;
     border-top: black solid 1pt;
     
->>>>>>> james_client
 }
 
 .queue-details {

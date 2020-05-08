@@ -1,4 +1,4 @@
-const {parallel, task } = require('gulp'),
+const { parallel, task } = require('gulp'),
 		nodemon = require('gulp-nodemon'),
 		browserSync = require('browser-sync').create();
 
@@ -9,7 +9,7 @@ var browserName = 'chrome'
 
 function callHello() {
 	console.log('hello world');
-}; 
+};
 
 function serverHandler() {
     nodemon({
