@@ -1,7 +1,6 @@
 const { watch, series, parallel, src, dest, task } = require('gulp'),
 		nodemon = require('gulp-nodemon'),
-		browserSync = require('browser-sync').create(),
-		run = require('gulp-run');
+		browserSync = require('browser-sync').create();
 
 const PORT = 3002;
 var hostName = '127.0.0.1';
