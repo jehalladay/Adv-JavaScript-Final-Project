@@ -1,6 +1,12 @@
 # Adv-JavaScript-Final-Project
 A basic MERN application that creates a planner that tracks the user's daily progress
 
+Users are required to sign in or register (use a fake email and password as the app doesn't use HTTPS), then will be directed to a planner. 
+
+The planner creates new Tasks and adds them to the central Master Queue to remind the user to do them, each completed task add points to that current day, and the app tracks the users daily and weekly progress.
+
+User's can choose what subcategory the task lies under and create new subjects to assign tasks to, links can be attached to tasks by providing a url in the link field
+
 
 ## How to run the Planner App
 
