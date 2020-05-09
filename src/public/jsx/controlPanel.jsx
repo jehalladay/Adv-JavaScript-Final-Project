@@ -75,7 +75,7 @@ class ControlPanel extends React.Component {
             let dueDate = new Date(Date.parse(dateField)),
                 newQueueItem = this.createQueue(task, subject, dueDate, type, details, link, points)
             
-            this.props.mQueue.pushTo('master', newQueueItem)
+            this.props.mQueue.pushTo('master', newQueueItem).sort()
             console.log('pushing to master')
 
             this.setState({subjects: this.createSubjects()})
